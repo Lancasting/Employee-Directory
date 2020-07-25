@@ -33,7 +33,7 @@ class People extends Component {
     handleSubmit() {
         this.state.people.filter(person => {
             return person.name.first.includes(this.state.search)
-        })
+        });
     }
 
     renderSingleView = () => { }
