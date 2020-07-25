@@ -3,7 +3,6 @@ import React from "react";
 export const TableBody = (props) => {
 
     return (
-        <table className="table table-dark">
         <tbody>
             {props.people.map(user => (
                 <tr key={user.cell}>
@@ -15,6 +14,5 @@ export const TableBody = (props) => {
                 </tr>
             ))}
         </tbody>
-        </table>
     );
 }

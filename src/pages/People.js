@@ -30,7 +30,7 @@ class People extends Component {
         })
 
     }
-    handleSubmit() {
+    handleSubmit(person) {
         this.state.people.filter(person => {
             return person.name.first.includes(this.state.search)
         });
@@ -81,13 +81,15 @@ class People extends Component {
                         handleInputChange={this.handleInputChange}
                         handleSubmit={this.handleSubmit}
                     />
+                    <table className="table table-dark">
                     <TableHeader
                         sortByFirstName={this.sortByFirstName}
                         sortByLastName={this.sortByLastName}
                     />
                     <TableBody
-                        people={this.state.people}
+                        people={this.state.people}  
                     />
+                    </table>
                 </Wrapper>
                 {/* <Table people={this.state.people}/> */}
             </div>
