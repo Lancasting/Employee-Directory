@@ -9,8 +9,7 @@ import { Navbar } from "../components/navbar";
 class People extends Component {
     state = {
         people: [],
-        search: "",
-        results: []
+        search: ""
     }
 
     componentDidMount() {
@@ -22,18 +21,12 @@ class People extends Component {
             )
             .catch(err => console.log(err));
     }
+    handleSubmit = (person) => {
+        this.setState({search: person})
+    }
 
     handleInputChange = (event) => {
-        event.preventDefault();
-        this.setState({
-            search: event.target.value
-        })
-
-    }
-    handleSubmit(person) {
-        this.state.people.filter(person => {
-            return person.name.first.includes(this.state.search)
-        });
+        this.handleSubmit(event.target.value)
     }
 
     renderSingleView = () => { }
@@ -87,11 +80,11 @@ class People extends Component {
                         sortByLastName={this.sortByLastName}
                     />
                     <TableBody
-                        people={this.state.people}  
+                        people={this.state.people} 
+                        search={this.state.search} 
                     />
                     </table>
                 </Wrapper>
-                {/* <Table people={this.state.people}/> */}
             </div>
         )
     }
